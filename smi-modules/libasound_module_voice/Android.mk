@@ -1,7 +1,6 @@
 ifeq ($(strip $(BOARD_USES_ALSA_AUDIO)),true)
 
 LOCAL_PATH := $(call my-dir)
-SMI_MODULES := device/motorola/smi/smi-modules
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
@@ -13,7 +12,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT)/usr/lib/alsa-lib
 LOCAL_CFLAGS += -DPIC -UNDEBUG -DDEBUG=1 -DLOG_NDEBUG=1
 
 LOCAL_C_INCLUDES:= \
-        $(SMI_MODULES)/alsa-lib/include
+        e/alsa-lib/include
 
 LOCAL_SHARED_LIBRARIES := \
         liblog \
@@ -34,7 +33,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT)/usr/lib/alsa-lib
 LOCAL_CFLAGS += -DPIC -UNDEBUG -DDEBUG=1 -DLOG_NDEBUG=1
 
 LOCAL_C_INCLUDES:= \
-        $(SMI_MODULES)/alsa-lib/include \
+        external/alsa-lib/include \
         $(TARGET_OUT_HEADERS)/hw
 
 LOCAL_SHARED_LIBRARIES := \

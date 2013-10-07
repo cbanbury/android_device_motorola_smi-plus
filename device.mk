@@ -11,11 +11,8 @@ LIB_ARM_FILES := $(wildcard $(DEVICE_FOLDER)/prebuilt/arm-binaries/*.so)
 
 # Houdini related files
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilt/arm-binaries/cpuinfo:system/lib/arm/cpuinfo \
-	$(LOCAL_PATH)/prebuilt/arm-binaries/cpuinfo.neon:system/lib/arm/cpuinfo.neon \
 	$(LOCAL_PATH)/prebuilt/arm-binaries/linker:system/lib/arm/linker \
 	$(LOCAL_PATH)/prebuilt/libdvm_houdini.so:system/lib/libdvm_houdini.so # Used for houdini hooks in dvm, nativejni, javacore; no source available for houdini_hook.a
-#	$(LOCAL_PATH)/prebuilt/arm-binaries/check.xml:system/lib/arm/check.xml \
 
 # Media and Alsa Conf
 LOCAL_ALSA_CONF_DIR  := $(LOCAL_PATH)/smi-modules/alsa-lib/src/conf
@@ -40,18 +37,19 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_FOLDER)/prebuilt/media_profiles.xml:system/etc/media_profiles.xml
 
 # Audio
-    libasound \
     libbluetooth-audio \
     libasound_module_pcm_voice \
-    libasound_module_ctl_voice
+    libasound_module_ctl_voice \
+    alsa.smi \
+    audio.hdmi.smi \
 #    audio_policy.smi \
 #    audio.primary.smi \
-#    alsa.smi \
 #    audio.a2dp.default \
 
 # HAL
 PRODUCT_PACKAGES += \
-gralloc.default
+    gralloc.default \
+    fm.smi
 #    hwcomposer.smi \
 #    camera.sc1 \
 #    power.smi
@@ -62,7 +60,7 @@ PRODUCT_PACKAGES += \
     modemlog \
     batt_health \
     charge_only_mode
-#    mot_boot_mode
+    mot_boot_mode
 
 # Mfld/Intel specific modules
 PRODUCT_PACKAGES += \
