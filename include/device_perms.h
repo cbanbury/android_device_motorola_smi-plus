@@ -22,6 +22,6 @@
 { "tcmd.", AID_MOT_TCMD, AID_MOT_WHISPER }, \
 { "hw.whisper", AID_MOT_WHISPER, 0 }, \
 { "sys.media.", AID_RADIO, 0 }, \
-{ "persist.atvc.", AID_SYSTEM, 0 },
+{ "persist.atvc.", AID_SYSTEM, 0 }, \
 
 #endif /* DEVICE_PERMS_H */
