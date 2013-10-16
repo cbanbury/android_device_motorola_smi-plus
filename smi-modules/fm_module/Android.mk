@@ -1,8 +1,10 @@
+ifeq ($(BOARD_HAVE_FM_RADIO_TI),true)
+
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-FM_STACK_PATH := vendor/intel/fmradio/fm_stack
+FM_STACK_PATH := vendor/ti/fmradio/fm_stack
 
 LOCAL_PRELINK_MODULE := false
 
@@ -16,7 +18,7 @@ LOCAL_COPY_HEADERS := \
 LOCAL_CFLAGS := -D_POSIX_SOURCE -Wno-multichar
 
 LOCAL_C_INCLUDES += \
-	external/alsa-lib/include \
+	device/motorola/smi-plus/smi-modules/alsa-lib/include \
 	$(FM_STACK_PATH)/HSW_FMStack/stack/inc \
 	$(FM_STACK_PATH)/HSW_FMStack/stack/inc/int \
 	$(FM_STACK_PATH)/MCP_Common/inc \
@@ -26,12 +28,13 @@ LOCAL_C_INCLUDES += \
 	$(FM_STACK_PATH)/MCP_Common/Platform/inc \
 	$(FM_STACK_PATH)/MCP_Common/Platform/fmhal/inc \
 	$(FM_STACK_PATH)/MCP_Common/Platform/fmhal/inc/int \
-	$(FM_STACK_PATH)/MCP_Common/Platform/fmhal/LINUX/android_zoom2/inc
+	$(FM_STACK_PATH)/MCP_Common/Platform/fmhal/LINUX/android_zoom2/inc \
+	$(FM_STACK_PATH)/MCP_Common/tran
 
 LOCAL_SHARED_LIBRARIES := \
 	liblog \
 	libasound \
-	libfmstack
+	libfm_stack
 
 LOCAL_SRC_FILES:= \
 	fm_module.cpp
@@ -40,3 +43,5 @@ LOCAL_MODULE:= fm.$(TARGET_DEVICE)
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
+
+endif
