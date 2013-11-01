@@ -36,16 +36,6 @@ PRODUCT_COPY_FILES += \
         $(LOCAL_ALSA_CONF_DIR)/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
     $(DEVICE_FOLDER)/prebuilt/media_profiles.xml:system/etc/media_profiles.xml
 
-# Audio
-    libbluetooth-audio \
-    libasound_module_pcm_voice \
-    libasound_module_ctl_voice \
-    alsa.smi \
-    audio.hdmi.smi \
-#    audio_policy.smi \
-#    audio.primary.smi \
-#    audio.a2dp.default \
-
 # HAL
 PRODUCT_PACKAGES += \
     gralloc.default \

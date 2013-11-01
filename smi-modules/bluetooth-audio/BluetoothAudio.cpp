@@ -44,7 +44,7 @@ bool CBluetoothAudio::enablePort(bool bEnabled)
     if ((pid = fork()) != 0) {
         // Father
         if (pid == -1) {
-            LOGE("%s - Cannot fork() to call hcitool: %s", __FUNCTION__, strerror(errno));
+            ALOGE("%s - Cannot fork() to call hcitool: %s", __FUNCTION__, strerror(errno));
             return false;
         }
 
@@ -56,7 +56,7 @@ bool CBluetoothAudio::enablePort(bool bEnabled)
             const char * argv[] = {"logwrapper", "/system/xbin/hcitool", "cmd", "0x3F", "0X195", "FF", "FF", "FF",
                                    "FF", "FF", "FF", "FF", "FF", "01", "FF", "FF", "00",
                                    "00", "00", "00", NULL};
-            LOGI("%s : enabling BT path", __FUNCTION__);
+            ALOGI("%s : enabling BT path", __FUNCTION__);
 
             execv(logwrapper_path, (char **)argv);
 
@@ -64,12 +64,12 @@ bool CBluetoothAudio::enablePort(bool bEnabled)
             const char * argv[] = {"logwrapper", "/system/xbin/hcitool", "cmd", "0x3F", "0X195", "FF", "FF", "FF",
                                    "FF", "FF", "FF", "FF", "FF", "00", "FF", "FF", "00",
                                    "00", "00", "00", NULL};
-            LOGI("%s : Disabling BT path", __FUNCTION__);
+            ALOGI("%s : Disabling BT path", __FUNCTION__);
 
             execv(logwrapper_path, (char **)argv);
 
         }
-        LOGE("%s - Failed to exec hcitool command for %s: %s", __FUNCTION__, bEnabled ? "enabling" :"disabling", strerror(errno));
+        ALOGE("%s - Failed to exec hcitool command for %s: %s", __FUNCTION__, bEnabled ? "enabling" :"disabling", strerror(errno));
     }
 
     return true;
