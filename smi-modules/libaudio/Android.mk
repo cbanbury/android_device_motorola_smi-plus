@@ -20,9 +20,9 @@ PRODUCT_PACKAGES += \
     amix \
     arec \
     alsaucm_test \
-    libbluetooth-audio \
-    libasound_module_pcm_voice \
-    libasound_module_ctl_voice \
-    audio.hdmi.smi
+#    libbluetooth-audio \
+#    libasound_module_pcm_voice \
+#    libasound_module_ctl_voice \
+#    audio.hdmi.smi
 endif
 

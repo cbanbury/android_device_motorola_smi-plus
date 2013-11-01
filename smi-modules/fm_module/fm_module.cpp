@@ -41,7 +41,7 @@ static int fm_audio_control_cmd(bool enable);
 int fm_init()
 {
     fm_handle = NULL;
-    LOGD("FM HW module initialized.");
+    ALOGD("FM HW module initialized.");
     return NO_ERROR;
 }
 
@@ -53,12 +53,12 @@ int fm_set_state(int mode)
     int err = NO_ERROR;
 
     if ((err = fm_configure_codec(mode)) < 0) {
-        LOGE("Cannot enable/disable Codec PCM1 (mode %s)",
+        ALOGE("Cannot enable/disable Codec PCM1 (mode %s)",
             (mode == AudioSystem::MODE_FM_ON) ? "ON" : "OFF");
     }
 
     if ((err = fm_audio_control_cmd((mode == AudioSystem::MODE_FM_ON) ? true : false)) < 0) {
-        LOGE("Cannot set/unset FM audio path (mode %s)",
+        ALOGE("Cannot set/unset FM audio path (mode %s)",
             (mode == AudioSystem::MODE_FM_ON) ? "ON" : "OFF");
         return err;
     }
@@ -74,10 +74,10 @@ static int fm_configure_codec(int mode) {
     static const char *deviceFmPlaybackPCM1 = "FmPlayback";
 
     if (mode == AudioSystem::MODE_FM_ON) {
-        LOGD("Opening codec PCM1 on device %s", deviceFmPlaybackPCM1);
+        ALOGD("Opening codec PCM1 on device %s", deviceFmPlaybackPCM1);
         err = snd_pcm_open(&fm_handle, deviceFmPlaybackPCM1 , SND_PCM_STREAM_PLAYBACK, 0);
         if (err  < 0) {
-            LOGE("Playback open error: %s\n", snd_strerror(err));
+            ALOGE("Playback open error: %s\n", snd_strerror(err));
             fm_handle = NULL;
             return err;
         } else {
@@ -89,7 +89,7 @@ static int fm_configure_codec(int mode) {
                                      FM_SND_PCM_SOFT_RESAMPLE,
                                      FM_SND_PCM_LATENCY_US);
             if (err < 0) {
-                LOGE("Set params error: %s\n", snd_strerror(err));
+                ALOGE("Set params error: %s\n", snd_strerror(err));
                 snd_pcm_close(fm_handle);
                 fm_handle = NULL;
                 return err;
@@ -97,12 +97,12 @@ static int fm_configure_codec(int mode) {
 
         }
     } else {
-        LOGD("Closing device PCM1");
+        ALOGD("Closing device PCM1");
         if (fm_handle != NULL) {
             snd_pcm_close(fm_handle);
             fm_handle = NULL;
         } else {
-            LOGD("Device PCM1 already closed!");
+            ALOGD("Device PCM1 already closed!");
         }
     }
     return err;
