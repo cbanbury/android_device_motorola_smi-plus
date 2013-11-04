@@ -210,18 +210,6 @@
                    sampleRate="44100"
                    channels="2" />
 	</EncoderProfile>
-        <EncoderProfile quality="mms" fileFormat="3gp" duration="30">
-            <Video codec="h264"
-                   bitRate="128000"
-                   width="320"
-                   height="240"
-                   frameRate="15" />
-
-            <Audio codec="amrnb"
-                   bitRate="12200"
-                   sampleRate="8000"
-                   channels="1" />
-        </EncoderProfile>
 
         <EncoderProfile quality="timelapselow" fileFormat="mp4" duration="30">
             <Video codec="h264"
@@ -419,19 +407,6 @@
 
         </EncoderProfile>
 
-        <EncoderProfile quality="mms" fileFormat="3gp" duration="30">
-            <Video codec="h264"
-                   bitRate="128000"
-                   width="320"
-                   height="240"
-                   frameRate="15" />
-
-            <Audio codec="amrnb"
-                   bitRate="12200"
-                   sampleRate="8000"
-                   channels="1" />
-        </EncoderProfile>
-
         <EncoderProfile quality="timelapselow" fileFormat="mp4" duration="30">
             <Video codec="h264"
                    bitRate="128000"
@@ -565,6 +540,4 @@
     -->
     <VideoDecoderCap name="wmv" enabled="true"/>
     <AudioDecoderCap name="wma" enabled="true"/>
-    <AudioDecoderCap name="qcp" enabled="true"/>
-    <AudioDecoderCap name="evrc" enabled="true"/>
 </MediaSettings>

@@ -23,13 +23,13 @@ LOCAL_CFLAGS += -DSEPERATED_AUDIO_INPUT
 endif
 
 LOCAL_SRC_FILES := \
-  AudioHardwareALSA.cpp 	\
-  AudioStreamOutALSA.cpp 	\
-  AudioStreamInALSA.cpp 	\
-  ALSAStreamOps.cpp		\
-  audio_hw_hal.cpp \
-  AudioUsbALSA.cpp \
-  AudioUtil.cpp
+  $(LOCAL_PATH)/AudioHardwareALSA.cpp 	\
+  $(LOCAL_PATH)/AudioStreamOutALSA.cpp 	\
+  $(LOCAL_PATH)/AudioStreamInALSA.cpp 	\
+  $(LOCAL_PATH)/ALSAStreamOps.cpp		\
+  $(LOCAL_PATH)/audio_hw_hal.cpp \
+  $(LOCAL_PATH)/AudioUsbALSA.cpp \
+  $(LOCAL_PATH)/AudioUtil.cpp
 
 LOCAL_STATIC_LIBRARIES := \
     libmedia_helper \
@@ -75,8 +75,8 @@ ifeq ($(BOARD_HAVE_BLUETOOTH),true)
 endif
 
 LOCAL_SRC_FILES := \
-    audio_policy_hal.cpp \
-    AudioPolicyManagerALSA.cpp
+    $(LOCAL_PATH)/audio_policy_hal.cpp \
+    $(LOCAL_PATH)/AudioPolicyManagerALSA.cpp
 
 LOCAL_MODULE := audio_policy.smi
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
@@ -119,9 +119,9 @@ endif
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/mm-audio/libalsa-intf
 
 LOCAL_SRC_FILES:= \
-    alsa_default.cpp \
-    ALSAControl.cpp \
-    AudioUtil.cpp
+    $(LOCAL_PATH)/alsa_default.cpp \
+    $(LOCAL_PATH)/ALSAControl.cpp \
+    $(LOCAL_PATH)/AudioUtil.cpp
 
 LOCAL_SHARED_LIBRARIES := \
     libcutils \

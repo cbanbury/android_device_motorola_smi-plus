@@ -15,7 +15,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilt/arm-binaries/linker:system/lib/arm/linker \
 	$(LOCAL_PATH)/prebuilt/libdvm_houdini.so:system/lib/libdvm_houdini.so # Used for houdini hooks in dvm, nativejni, javacore; no source available for houdini_hook.a
 
-<<<<<<< HEAD
 # Media and Alsa Conf
 LOCAL_ALSA_CONF_DIR  := $(LOCAL_PATH)/smi-modules/alsa-lib/src/conf
 PRODUCT_COPY_FILES += \
@@ -38,8 +37,6 @@ PRODUCT_COPY_FILES += \
         $(LOCAL_ALSA_CONF_DIR)/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
     $(DEVICE_FOLDER)/prebuilt/media_profiles.xml:system/etc/media_profiles.xml
 
-=======
->>>>>>> 570627a35839445d4009f39e64f2999a0e747d28
 # HAL
 PRODUCT_PACKAGES += \
     gralloc.default \
@@ -93,7 +90,6 @@ PRODUCT_PACKAGES += \
     libwbxmlparser \
     libnl
 
-$(call inherit-product, $(DEVICE_FOLDER)/keychars/keychars.mk)
 $(call inherit-product, $(DEVICE_FOLDER)/keylayout/keylayout.mk)
 $(call inherit-product, $(DEVICE_FOLDER)/smi-modules/nfc/nfc.mk)
 $(call inherit-product, $(DEVICE_FOLDER)/smi-modules/fm_module/fmradio.mk)

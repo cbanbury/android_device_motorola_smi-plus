@@ -1,6 +1,6 @@
 ifeq ($(strip $(BOARD_USES_ALSA_AUDIO)),true)
 
-AUDIO_HW_ROOT := $(call my-dir)
+AUDIO_HW_ROOT := device/motorola/smi-plus/smi-modules/libaudio
 
 include $(AUDIO_HW_ROOT)/alsa_sound.mk
 include $(AUDIO_HW_ROOT)/libalsa-intf.mk
