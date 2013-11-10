@@ -38,6 +38,10 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_FOLDER)/prebuilt/media_profiles.xml:system/etc/media_profiles.xml
 
 # HAL
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilt/vendor/lib/hw/gralloc.sc1.so:system/vendor/lib/hw/gralloc.sc1.so \
+	$(LOCAL_PATH)/prebuilt/lib/hw/lights.sc1.so:system/lib/hw/lights.sc1.so
+
 PRODUCT_PACKAGES += \
     gralloc.default \
     fm.smi \
