@@ -17,7 +17,7 @@ PRODUCT_COPY_FILES += \
 
 # Media and Alsa Conf
 LOCAL_ALSA_CONF_DIR  := $(LOCAL_PATH)/smi-modules/alsa-lib/src/conf
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
         $(LOCAL_ALSA_CONF_DIR)/alsa.conf:system/usr/share/alsa/alsa.conf \
         $(LOCAL_ALSA_CONF_DIR)/pcm/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \
         $(LOCAL_ALSA_CONF_DIR)/pcm/modem.conf:system/usr/share/alsa/pcm/modem.conf \
@@ -51,14 +51,6 @@ PRODUCT_PACKAGES += \
 #    camera.sc1 \
 #    power.smi
 
-# Motorola
-PRODUCT_PACKAGES += \
-    aplogd \
-    modemlog \
-    batt_health \
-    charge_only_mode \
-    mot_boot_mode
-
 # Mfld/Intel specific modules
 PRODUCT_PACKAGES += \
     libproperty \
@@ -74,7 +66,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bthelp \
     btcmd \
-    bd_prov
+    bd_prov \
+    libbluetooth-audio
 
 # Glib tools
 PRODUCT_PACKAGES += \
@@ -97,4 +90,3 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, $(DEVICE_FOLDER)/keylayout/keylayout.mk)
 $(call inherit-product, $(DEVICE_FOLDER)/smi-modules/nfc/nfc.mk)
 $(call inherit-product, $(DEVICE_FOLDER)/smi-modules/fm_module/fmradio.mk)
-$(call inherit-product, $(DEVICE_FOLDER)/smi-modules/libaudio/alsa.mk)
