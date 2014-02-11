@@ -18,7 +18,7 @@ LOCAL_COPY_HEADERS := \
 LOCAL_CFLAGS := -D_POSIX_SOURCE -Wno-multichar
 
 LOCAL_C_INCLUDES += \
-	device/motorola/smi-plus/smi-modules/alsa-lib/include \
+	$(LOCAL_PATH)/../alsa-lib/include \
 	$(FM_STACK_PATH)/HSW_FMStack/stack/inc \
 	$(FM_STACK_PATH)/HSW_FMStack/stack/inc/int \
 	$(FM_STACK_PATH)/MCP_Common/inc \

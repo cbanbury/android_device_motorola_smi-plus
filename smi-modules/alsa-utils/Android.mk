@@ -19,7 +19,7 @@ LOCAL_CFLAGS := \
 LOCAL_C_INCLUDES:= \
 	$(LOCAL_PATH)/include \
 	$(LOCAL_PATH)/android \
-	../alsa-lib/include
+	$(LOCAL_PATH)/../alsa-lib/include
 
 LOCAL_SRC_FILES := \
 	aplay/aplay.c
@@ -48,7 +48,7 @@ LOCAL_CFLAGS := \
 LOCAL_C_INCLUDES:= \
 	$(LOCAL_PATH)/include \
 	$(LOCAL_PATH)/android \
-	../alsa-lib/include
+	$(LOCAL_PATH)/../alsa-lib/include
 
 LOCAL_SRC_FILES := \
 	alsactl/alsactl.c \
@@ -80,7 +80,7 @@ LOCAL_CFLAGS := \
 LOCAL_C_INCLUDES:= \
 	$(LOCAL_PATH)/include \
 	$(LOCAL_PATH)/android \
-	../alsa-lib/include
+	$(LOCAL_PATH)/../alsa-lib/include
 
 LOCAL_SRC_FILES := \
 	amixer/amixer.c
@@ -96,7 +96,7 @@ include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
 
-ALSAINIT_DIR := $(TARGET_OUT)/usr/share/alsa/init
+#ALSAINIT_DIR := $(TARGET_OUT)/usr/share/alsa/init
 
 #$(info WARNING: PRODUCT_COPY_FILES disabled in $(LOCAL_PATH))
 #PRODUCT_COPY_FILES += \
